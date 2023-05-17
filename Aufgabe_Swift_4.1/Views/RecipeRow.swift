@@ -11,15 +11,21 @@ struct RecipeRow: View {
     @State var recipe: Recipe
     var body: some View {
        
-            HStack{
+            /*HStack{
                 Image("spinaci")
                     .resizable()
                     .frame(width: 50, height: 50)
-                Text("Pasta Spinaci")
-            
+                Text("Pasta Spinaci")*/
+        HStack{
+            Image(recipe.imageName)
+                .resizable()
+                //.scaledToFit()
+                .frame(width: 40, height: 40)
+            Text(recipe.name)
+            }
         }
     }
-}
+//}
 
 struct RecipeRow_Previews: PreviewProvider {
     static var previews: some View {
