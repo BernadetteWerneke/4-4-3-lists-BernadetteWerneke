@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct RecipeRow: View {
+    @State var recipe: Recipe
     var body: some View {
-        Text("Hier soll eure Row entstehen")
+       
+            HStack{
+                Image("spinaci")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Text("Pasta Spinaci")
+            
+        }
     }
 }
 
 struct RecipeRow_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeRow()
+        RecipeRow(recipe: Recipe(id: 0, name: "", imageName: ""))
     }
 }

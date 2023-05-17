@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeList: View {
     
-    var recipes: [Recipe] = [ Recipe(id: 0, name: "Pasta Bolognese", imageName: "bolognese"),
+    @State var recipes: [Recipe] = [ Recipe(id: 0, name: "Pasta Bolognese", imageName: "bolognese"),
                               Recipe(id: 1, name: "Pasta Napoli", imageName: "napoli"),
                               Recipe(id: 2, name: "Pasta Aglio e Olio", imageName: "aglioeolio"),
                               Recipe(id: 3, name: "Pasta al Salmone", imageName: "salmone"),
@@ -22,9 +22,75 @@ struct RecipeList: View {
                               Recipe(id: 10, name: "Lasagne", imageName: "lasagne")]
     
     var body: some View {
-        Text("Hier soll eure Liste angezeigt werden")
+        List{
+            /*Section("Pasta"){
+                HStack{
+                    Image(recipes[1].imageName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text(recipes[1].name)
+                }
+                HStack{
+                    Image(recipes[2].imageName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text(recipes[2].name)
+                }
+                HStack{
+                    Image(recipes[3].imageName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text(recipes[3].name)
+                }
+            }
+            .listRowBackground(Color.yellow)
+           */
+            
+          /*  Section("Pizza"){
+                HStack{
+                    Image(recipes[8].imageName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text(recipes[8].name)
+                }
+                HStack{
+                    Image(recipes[9].imageName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text(recipes[9].name)
+                }
+                .listRowBackground(Color.green)
+                HStack{
+                    Image(recipes[6].imageName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text(recipes[6].name)
+                }
+                .listRowBackground(Color.blue)
+                
+            }*/
+            
+            Section("Menu"){
+                ForEach(recipes) {recipe in
+                        HStack{
+                            Image(recipe.imageName)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                            Text(recipe.name)
+                        }
+                        
+                    }
+                    .onDelete { indexSet in
+                        recipes.remove(atOffsets: indexSet)
+                    }
+                
+                }
+        }
+        .listStyle(.plain)
+        }
     }
-}
+    
+
 
 struct RecipeList_Previews: PreviewProvider {
     static var previews: some View {
